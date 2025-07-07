@@ -31,9 +31,9 @@ h6 {
 
 
 .btn-primary:hover, .enrole_btn:hover {
-    border: 1px solid #7337FF !important;
-    color : #7337FF !important;
-    background: transparent !important;
+    border: 1px solid #4C24A8 !important;
+    color : #fff !important;
+    background: #4C24A8 !important;
 }
 
 .is-disabled {
@@ -161,4 +161,8 @@ h6 {
 
 .btn-outline-primary:hover {
     background: transparent !important;
+}
+
+.tabs_wrapper .nav-link {
+    font-weight: 500 !important;
 }

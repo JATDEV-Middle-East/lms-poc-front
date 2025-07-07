@@ -131,9 +131,28 @@
             </div>
 
             <div class="mt-2" *ngIf="showEnrolButton">
-                <button *ngIf="course.progress == 0" class="enrole_btn btn">Enroll in course</button>
-                <button *ngIf="course.progress && course.progress < 100 && course.progress > 0" class="enrole_btn continue_btn btn">Continue Learning</button>
-                <button *ngIf="course.progress && course.progress >= 99" class="enrole_btn completed_btn btn">Completed</button>
+                <!-- Enroll button -->
+                <button
+                    *ngIf="course.progress == 0"
+                    class="enrole_btn btn"
+                    routerLink="/courses/{{course.id}}">
+                    Enroll in course
+                </button>
+
+                <!-- Continue button -->
+                <button
+                    *ngIf="course.progress && course.progress < 100 && course.progress > 0"
+                    class="enrole_btn continue_btn btn"
+                    routerLink="/courses/{{course.id}}">
+                    Continue Learning
+                </button>
+
+                <!-- Completed button -->
+                <button
+                    *ngIf="course.progress && course.progress >= 99"
+                    class="enrole_btn completed_btn btn">
+                    Completed
+                </button>
             </div>
         </div>
     </div>

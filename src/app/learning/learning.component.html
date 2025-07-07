@@ -60,7 +60,7 @@
             <div class="tab-pane fade" id="New" role="tabpanel" aria-labelledby="New-tab">
                 <div class="row">
                     <div class="col-md-4 mb-4" *ngFor="let course of newCourses">
-                        <app-course-card [course]="course"></app-course-card>
+                        <app-course-card [showEnrolButton]="true" [course]="course"></app-course-card>
                     </div>
                     <div class="col-12 my-3">
                         <app-pagination
@@ -74,7 +74,7 @@
             <div class="tab-pane fade" id="UpComing" role="tabpanel" aria-labelledby="UpComing-tab">
                 <div class="row">
                     <div class="col-md-4 mb-4" *ngFor="let course of upComingCourses">
-                        <app-course-card [course]="course"></app-course-card>
+                        <app-course-card [showEnrolButton]="true" [course]="course"></app-course-card>
                     </div>
                     <div class="col-12 my-3">
                         <app-pagination
