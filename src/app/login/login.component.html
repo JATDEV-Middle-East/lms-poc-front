@@ -1,0 +1,98 @@
+<div class="min-vh-100 d-flex auth_wrapper">
+    <!-- Left side - Logo section -->
+    <div class="d-none d-lg-flex col-lg-6 align-items-center justify-content-center p-5">
+        <div class="d-flex align-items-center">
+            <div>
+                <img src="assets/img/lms-logo.png" alt="App Logo" class="img-fluid mb-2 app-logo">
+            </div>
+        </div>
+    </div>
+
+    <!-- Right side - Login form -->
+    <div class="col-12 col-lg-6 d-flex align-items-center justify-content-center p-4">
+        <div class="w-100" style="max-width: 483px;">
+            <div class="card shadow border-1 rounded-4">
+                <div class="card-body p-4 p-md-5">
+                    <div class="mb-4">
+                        <h2 class="welcome-text fw-700 text-dark mb-2">Welcome!</h2>
+                        <div class="mb-4 mt-3">
+                            <h3 class="signin-text fw-semibold text-dark mb-1">Sign in</h3>
+                            <p class="text-dark small">Your learning journey continues here. Sign in to continue.</p>
+                        </div>
+                    </div>
+
+                    <form (ngSubmit)="onLogin()" id="loginForm">
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email*</label>
+                            <input
+                                type="text"
+                                id="username"
+                                name="username"
+                                [(ngModel)]="credentials.username"
+                                required
+                                #usernameField="ngModel"
+                                placeholder="Enter your Email"
+                                class="form-control"
+                                [class.is-invalid]="usernameField.invalid && usernameField.touched"
+                            >
+                            <div *ngIf="usernameField.invalid && usernameField.touched" class="invalid-feedback">
+                                Username is required.
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password*</label>
+                            <div class="position-relative">
+                                <input
+                                    [type]="passwordFieldType"  id="password"
+                                    name="password"
+                                    [(ngModel)]="credentials.password"
+                                    required
+                                    #passwordField="ngModel"
+                                    class="form-control form-control-lg rounded-3 border-2 pe-5"
+                                    placeholder="Enter your password"
+                                >
+                                <button
+                                    type="button"
+                                    class="btn position-absolute top-50 end-0 translate-middle-y me-2 border-0 bg-transparent text-muted"
+                                    (click)="togglePasswordVisibility()" >
+                                    <i
+                                        class="fas"
+                                        [ngClass]="{'fa-eye': !showPassword, 'fa-eye-slash': showPassword}" ></i>
+                                </button>
+                            </div>
+                            <div *ngIf="passwordField.invalid && passwordField.touched" class="invalid-feedback">
+                                Password is required.
+                            </div>
+                        </div>
+                        <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+
+                        <button type="submit" 
+                        class="btn btn-primary w-100 py-3 rounded-3 fw-semibold mt-4 mb-2"
+                        [class.is-disabled]="isSubmitting"
+                        >
+                            Login
+                        </button>
+
+                        <div class="d-flex justify-content-between align-items-center small">
+                            <div>
+                                <div class="form-check">
+                                    <input class="form-check-input border-1" style="border: 1px solid #000000;" type="checkbox" id="rememberMe">
+                                    <label class="form-check-label text-muted" for="rememberMe">
+                                        Remember me
+                                    </label>
+                                </div>
+                            </div>
+                            <a href="#" class="forgot-password text-decoration-none fw-medium">Forgot Password ?</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Mobile logo -->
+            <div class="d-lg-none mt-4 d-flex align-items-center justify-content-center">
+                    <img src="assets/img/lms-logo.png" alt="App Logo" class="img-fluid mb-2 app-logo_mobile">
+            </div>
+        </div>
+    </div>
+</div>

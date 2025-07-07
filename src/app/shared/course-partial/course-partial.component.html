@@ -1,0 +1,148 @@
+
+<div class="card course-card h-100" *ngIf="course">
+    <a routerLink="/courses/{{course.id}}">
+
+
+        <div class="course-image p-0 m-0 bg-light position-relative">
+            <div class="course-video-container p-0 m-0 bg-light position-relative">
+                <ng-container *ngIf="course?.introVideoUrl; else noVideoImage">
+                    
+                    <!-- [src]="course!.introVideoUrl" -->
+                    <video #introVideo
+                        [src]="'/screen-capture.webm'"
+                        [poster]="course!.image"
+                        [attr.type]="getMimeType('course!.introVideoUrl')" class="intro-video"
+                        preload="metadata"
+                        playsinline
+                        controls
+                        (click)="playIntroVideo()"
+                        style="height: 180px; width : 100%"
+                    ></video>
+
+                    <div *ngIf="showPlayButton" class="play-button-overlay" (click)="playIntroVideo()">
+                        <div class="rounded-pill bg-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6 play-icon">
+                            <path fill-rule="evenodd" d="M4.5 5.653c0-1.427 1.529-2.33 2.779-1.643l11.54 6.347c1.295.712 1.295 2.573 0 3.286L7.28 19.99c-1.25.687-2.779-.217-2.779-1.643V5.653Z" clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                    </div>
+                    
+                </ng-container>
+
+                <ng-template #noVideoImage>
+                    <img style="height: 180px;" *ngIf="course?.image" [src]="course!.image" class="fallback-course-image"
+                        alt="{{ course.title }} thumbnail" />
+                    <div *ngIf="!course?.image" class="no-image-placeholder">No Image Available</div>
+                </ng-template>
+                <div class="course-badges">
+                    <span class="badge">{{course.type}}</span>
+                    <span class="badge text-dark">{{course.level}}</span>
+                    <span *ngIf="course.assigned" class="badge assigned">Assigned</span>
+                </div>
+            </div>
+        </div>
+    </a>
+    <div class="card-body mt-0">
+        <div class="course-meta mb-2">
+            <span class="text-muted d-flex justify-content-between small">
+                <span *ngIf="course.isLive">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="size-6 me-1">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M9.348 14.652a3.75 3.75 0 0 1 0-5.304m5.304 0a3.75 3.75 0 0 1 0 5.304m-7.425 2.121a6.75 6.75 0 0 1 0-9.546m9.546 0a6.75 6.75 0 0 1 0 9.546M5.106 18.894c-3.808-3.807-3.808-9.98 0-13.788m13.788 0c3.808 3.807 3.808 9.98 0 13.788M12 12h.008v.008H12V12Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+                    </svg>
+                    Live Course
+                </span>
+                <span *ngIf="course.isLive === false">
+
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M13.2411 9.30705C12.7666 9.06351 12.2022 9.06871 11.7327 9.32462L10.3183 10.0943C10.0965 9.52518 9.49703 9.11628 8.79487 9.11628H4.84615C4.38595 9.11628 3.96737 9.26605 3.63137 9.50632C3.40091 9.2693 3.06779 9.11628 2.69231 9.11628H1.25641C0.56359 9.11628 0 9.62744 0 10.2558V12.8605C0 13.4888 0.56359 14 1.25641 14H2.69231C3.06708 14 3.40091 13.847 3.63137 13.61C3.96737 13.8502 4.38595 14 4.84615 14H8.86446C9.63625 14 10.393 13.7591 10.9953 13.3221L13.4386 11.549C13.7954 11.2898 14 10.9031 14 10.489C14.0007 9.99342 13.7164 9.55189 13.2411 9.30705ZM2.8725 12.8605C2.8725 12.9503 2.79209 13.0233 2.69301 13.0233H1.25711C1.15803 13.0233 1.07762 12.9503 1.07762 12.8605V10.2558C1.07762 10.166 1.15803 10.093 1.25711 10.093H2.69301C2.79209 10.093 2.8725 10.166 2.8725 10.2558V10.907V12.2093V12.8605ZM12.7659 10.7865L10.3226 12.5596C9.91123 12.8585 9.39294 13.0233 8.86525 13.0233H4.84685C4.35219 13.0233 3.94942 12.658 3.94942 12.2093V10.907C3.94942 10.4583 4.35219 10.093 4.84685 10.093H8.79557C9.09208 10.093 9.33403 10.3118 9.33403 10.5814C9.33403 10.851 9.09208 11.0698 8.79557 11.0698H6.28275C5.98552 11.0698 5.74429 11.2886 5.74429 11.5581C5.74429 11.8277 5.98552 12.0465 6.28275 12.0465H8.79557C9.4008 12.0465 9.92919 11.743 10.2063 11.295L12.287 10.1627C12.478 10.0585 12.6474 10.1249 12.7105 10.1581C12.7744 10.1907 12.9238 10.289 12.9238 10.4896C12.9238 10.6055 12.8664 10.7142 12.7659 10.7865ZM7.00429 3.25581C7.99435 3.25581 8.79917 2.52521 8.79917 1.62791C8.79917 0.730605 7.99435 0 7.00429 0C6.01424 0 5.20942 0.730605 5.20942 1.62791C5.20942 2.52521 6.01424 3.25581 7.00429 3.25581ZM7.00429 0.976744C7.4006 0.976744 7.72224 1.26912 7.72224 1.62791C7.72224 1.9867 7.4006 2.27907 7.00429 2.27907C6.60799 2.27907 6.28635 1.9867 6.28635 1.62791C6.28635 1.26912 6.60799 0.976744 7.00429 0.976744ZM5.5655 7.48837H8.4359C9.44749 7.48837 10.052 6.94272 10.052 6.02914C10.052 4.9723 9.33044 3.90698 7.71865 3.90698H6.28275C4.67096 3.90698 3.94942 4.97295 3.94942 6.02914C3.94942 6.94272 4.55391 7.48837 5.5655 7.48837ZM6.28275 4.88372H7.71865C8.81137 4.88372 8.97506 5.60132 8.97506 6.02914C8.97506 6.40356 8.85446 6.51163 8.4359 6.51163H5.5655C5.14694 6.51163 5.02634 6.40356 5.02634 6.02914C5.02634 5.60132 5.19003 4.88372 6.28275 4.88372Z"
+                            fill="#00001E" />
+                    </svg>
+
+                    Self-paced course
+                </span>
+                <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />
+                    </svg>
+                    {{course.enrollmentCount}}
+                </span>
+                <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                    </svg>
+                    {{course.rating | number:'1.1-1'}}
+                </span>
+            </span>
+        </div>
+        <div class="course-footer">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+                <div>
+                    <div>
+                        <small class="course_dates">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="size-6">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z" />
+                            </svg>
+                            {{course.startDate | date:'dd MMM yyyy'}} - {{course.endDate | date:'dd MMM yyyy'}} </small>
+                    </div>
+                    <small class="mt-2 course_dates">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                        </svg>
+                        {{course.durationHours | number:'1.1-1'}} Hours
+                    </small>
+                </div>
+
+                <div *ngIf="course.assigned === true" class="d-flex gap-1 align-items-center"
+                    style="border-left: 1px solid #E3E3E3;">
+                    <div class="mx-1"></div>
+                    <div class="progress-circle"
+                        style="background: conic-gradient(#F1737C 0deg 88deg, #e5e7eb 88deg 360deg);">
+                    </div>
+                    <div>
+                        <span class="progress-text">Progress
+                        </span>
+                        <br>
+                        <span class="progress-text1">
+                            {{course.progress}}%
+                        </span>
+                    </div>
+                </div>
+                <div *ngIf="course.assigned === false" class="d-flex gap-1 align-items-center"
+                    style="border-left: 1px solid #E3E3E3; min-height : 40px;">
+                    <div class="mx-3"></div>
+                    <span class="course_price text-primary">
+                        ${{course.amount}}
+                    </span>
+                </div>
+            </div>
+
+            <div class="mt-2">
+                <div *ngIf="!course.assigned">
+                    <button 
+                    (click)="enroll()"
+                     *ngIf="isEnrolling === false" class="enrole_btn btn">Enroll in course</button>
+                     <button 
+                     *ngIf="isEnrolling" class="is-disabled enrole_btn btn bg-opacity-5">Enroll in course</button>
+
+                </div>
+                <div *ngIf="course.assigned">
+                    <button *ngIf="course.progress && course.progress >= 99"
+                        class="enrole_btn completed_btn btn">Completed</button>
+                    <button *ngIf="!course.progress || (course.progress && course.progress < 100 && course.progress > 0)"
+                        class="enrole_btn continue_btn btn">Continue Learning</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

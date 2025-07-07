@@ -1,0 +1,44 @@
+.dashboard_widget_overlay {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+
+/* Overview Cards */
+.overview-card {
+    border: none;
+    border-radius: 5px;
+    transition: transform 0.2s ease;
+    overflow: hidden;
+}
+
+.overview-card:hover {
+    transform: translateY(-2px);
+}
+
+.schedule-card {
+    border-radius: 5px;
+    border: 2px solid #fecaca !important;
+    background-color: white;
+}
+
+.overview-card .card-title {
+    font-family: Manrope;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #000;
+}
+
+.overview_count {
+    font-size: 32px;
+}
+
+.overview-card .card-body {
+    justify-content: end;
+    flex-direction: column;
+    display: flex;
+}
+

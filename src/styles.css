@@ -1,0 +1,164 @@
+body {
+    font-family: 'Manrope', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Manrope', sans-serif;
+}
+
+.text-secondary {
+    color: #B0B1B4;
+}
+
+.text-primary {
+    color: #7337FF !important;
+}
+
+.btn-secondary {
+    background: #B0B1B4 !important;
+}
+
+.btn-primary {
+    background: #7337FF !important;
+    border: 0 !important;
+    transition: 0.4s;
+}
+
+
+.btn-primary:hover, .enrole_btn:hover {
+    border: 1px solid #7337FF !important;
+    color : #7337FF !important;
+    background: transparent !important;
+}
+
+.is-disabled {
+    opacity: 0.5 !important;
+    cursor: not-allowed !important;
+
+}
+
+.btn {
+    transition: 0.4s;
+}
+.btn:hover {
+    /* opacity: 0.7; */
+}
+
+.text-purple {
+    color: #7c3aed !important;
+}
+
+.bg-purple {
+    background: linear-gradient(135deg, #7c3aed 0%, #8b5cf6 100%);
+}
+
+.bg-blue {
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+}
+
+.bg-pink {
+    background: linear-gradient(135deg, #ec4899 0%, #f472b6 100%);
+}
+
+.btn-purple {
+    background: linear-gradient(135deg, #7c3aed 0%, #8b5cf6 100%);
+    border: none;
+    color: white;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
+}
+
+.btn-purple:hover {
+    background: linear-gradient(135deg, #6d28d9 0%, #7c3aed 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(124, 58, 237, 0.4);
+    color: white;
+}
+
+
+/* Main Content */
+.main-content {
+    margin-left: 250px;
+    min-height: 100vh;
+}
+
+/* Responsive Design */
+@media (max-width: 991.98px) {
+    .main-content {
+        margin-left: 0;
+    }
+}
+
+.course_section a {
+    font-family: Manrope;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    vertical-align: middle;
+}
+
+
+
+.filter-button {
+    height: 40px;
+    border-radius: 2px;
+    border: 1px solid #D7D8D9;
+    padding: 7px 10px;
+
+}
+
+.filter-button svg {
+    width: 20px;
+}
+
+.nav-tabs .nav-link {
+    border: 0;
+    font-family: Manrope;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #00001E;
+}
+
+.nav-tabs {
+    border-bottom: 1px solid #E4E4E4;
+}
+
+.nav-tabs .nav-link.active {
+    border-bottom: 1px solid #7337FF;
+    color: #7337FF;
+}
+
+.total_enroll_overview {
+    background: #13358066;
+}
+.total_assigned_overview {
+    background: #801A6866;
+}
+
+.total_inprogress_overview {
+    background: #B98DFF66;
+}
+
+.total_completed_overview {
+    background: #EDEDED;
+}
+.bg-info {
+    background : #198BC5;
+}
+
+
+.btn-outline-primary {
+    border: 1px solid #7337FF;
+}
+
+.btn-outline-primary:hover {
+    background: transparent !important;
+}

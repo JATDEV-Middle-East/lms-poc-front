@@ -1,0 +1,21 @@
+
+.page-item .page-link {
+    color: #7337FF;
+    border: 0;
+    border: 1px solid #E4E4E4;
+    cursor: pointer !important;
+    padding-left: 0;
+    padding-right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px !important;
+}
+.page-item.active .page-link {
+    background: #7337FF !important;
+    color: white;
+}
+
+.page-link svg {
+    width: 18px;
+}

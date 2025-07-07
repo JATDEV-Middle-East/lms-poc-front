@@ -1,0 +1,90 @@
+<div class="container-fluid p-4">
+    <div class="mb-4">
+        <div class="d-flex justify-content-between">
+            <h2 class="h3 fw-bold text-dark mb-1">My Learnings</h2>
+            <button class="btn bg-white d-flex align-items-center justify-content-center filter-button">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 0 1-.659 1.591l-5.432 5.432a2.25 2.25 0 0 0-.659 1.591v2.927a2.25 2.25 0 0 1-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 0 0-.659-1.591L3.659 7.409A2.25 2.25 0 0 1 3 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0 1 12 3Z" />
+                </svg>
+
+                Filter</button>
+        </div>
+        <p class="text-muted">All the skills you need in one place</p>
+    </div>
+
+    <div>
+        <div class="d-flex tabs_wrapper position-relative">
+            <ul class="nav w-100 nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link fw-500 active" id="All-tab" data-bs-toggle="tab" data-bs-target="#All" type="button"
+                        role="tab" aria-controls="All" aria-selected="true">All</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="New-tab" data-bs-toggle="tab" data-bs-target="#New" type="button"
+                        role="tab" aria-controls="New" aria-selected="false">Assigned</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link fw-500" id="UpComing-tab" data-bs-toggle="tab" data-bs-target="#UpComing" type="button"
+                        role="tab" aria-controls="UpComing" aria-selected="false">Enrolled</button>
+                </li>
+
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link fw-500" id="UpComing-tab" data-bs-toggle="tab" data-bs-target="#UpComing" type="button"
+                        role="tab" aria-controls="UpComing" aria-selected="false">Certificates</button>
+                </li>
+
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link fw-500" id="UpComing-tab" data-bs-toggle="tab" data-bs-target="#UpComing" type="button"
+                        role="tab" aria-controls="UpComing" aria-selected="false">Favorites</button>
+                </li>
+            </ul>
+           
+        </div>
+        <div class="tab-content mt-3" id="myTabContent">
+            <div class="tab-pane fade show active" id="All" role="tabpanel" aria-labelledby="All-tab">
+                <div class="row">
+                    <div class="col-md-4 mb-4" *ngFor="let course of courses">
+                        <app-course-card [showEnrolButton]="true" [course]="course"></app-course-card>
+                    </div>
+                    <div class="col-12 my-3">
+                        <app-pagination
+                            [currentPage]="page"
+                            [totalPages]="totalPage"
+                            (pageChange)="onPageChange($event)">
+                        </app-pagination>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="New" role="tabpanel" aria-labelledby="New-tab">
+                <div class="row">
+                    <div class="col-md-4 mb-4" *ngFor="let course of newCourses">
+                        <app-course-card [course]="course"></app-course-card>
+                    </div>
+                    <div class="col-12 my-3">
+                        <app-pagination
+                            [currentPage]="pageNew"
+                            [totalPages]="totalPageNew"
+                            (pageChange)="onPageChange($event, 'new')">
+                        </app-pagination>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="UpComing" role="tabpanel" aria-labelledby="UpComing-tab">
+                <div class="row">
+                    <div class="col-md-4 mb-4" *ngFor="let course of upComingCourses">
+                        <app-course-card [course]="course"></app-course-card>
+                    </div>
+                    <div class="col-12 my-3">
+                        <app-pagination
+                            [currentPage]="pageUpComing"
+                            [totalPages]="totalPageComing"
+                            (pageChange)="onPageChange($event, 'upComing')">
+                        </app-pagination>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

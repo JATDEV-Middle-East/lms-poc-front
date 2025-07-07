@@ -1,0 +1,42 @@
+.auth_wrapper {
+    background: url(/assets/img/auth_background.png) no-repeat center center fixed;
+}
+.auth_wrapper .app-logo {
+    max-height: 110px;
+}
+.auth_wrapper .app-logo_mobile {
+    max-height: 80px;
+}
+
+.welcome-text {
+    font-size: 32px;
+}
+
+.signin-text {
+    font-size: 24px;
+}
+
+#loginForm label {
+    font-family: Manrope;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #5D5D69;
+}
+
+#loginForm input {
+    font-family: Manrope;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    border: 0;
+    border-bottom: 1px solid #7337FF;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+}   
+
+.forgot-password {
+    color : #4D4D4D;
+}

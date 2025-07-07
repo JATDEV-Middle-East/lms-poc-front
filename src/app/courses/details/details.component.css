@@ -1,0 +1,167 @@
+.course_title {
+    font-family: Manrope;
+font-weight: 700;
+font-size: 32px;
+line-height: 100%;
+letter-spacing: 0%;
+color: #211C37;
+}
+.play-button {
+    width: 4rem;
+    height: 4rem;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.course-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.875rem;
+    color: #6b7280;
+    margin-bottom: 1rem;
+}
+
+.course-meta .item {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.star-rating {
+    color: #fbbf24;
+}
+
+.price {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #7c3aed;
+}
+
+.enroll-btn {
+    background: #7c3aed;
+    color: white;
+    border: none;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    width: 100%;
+    transition: background-color 0.2s;
+}
+
+.enroll-btn:hover {
+    background: #6d28d9;
+}
+
+.learning-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.learning-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    font-family: Manrope;
+font-weight: 400;
+font-size: 16px;
+line-height: 100%;
+letter-spacing: 0%;
+
+}
+.learning-item svg, .lecture-content svg {
+    width: 18px;
+}
+
+.check-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    background: #dcfce7;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #16a34a;
+    flex-shrink: 0;
+    margin-top: 0.125rem;
+}
+
+.content-section {
+    border-bottom: 1px solid #e5e7eb;
+    padding: 1rem;
+}
+
+.section-toggle {
+    background: none;
+    border: none;
+    width: 100%;
+    text-align: left;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    transition: background-color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: between;
+}
+
+.section-toggle:hover {
+    background-color: #f9fafb;
+}
+
+.lecture-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    transition: background-color 0.2s;
+}
+
+.lecture-item:hover {
+    background-color: #f9fafb;
+}
+
+.lecture-content {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.lecture-icon {
+    color: #6b7280;
+}
+
+.lecture-title {
+    font-size: 0.875rem;
+    color: #374151;
+}
+
+.lecture-duration {
+    font-size: 0.875rem;
+    color: #6b7280;
+}
+
+@media (max-width: 768px) {
+    .learning-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
+.courseContentAccordion .accordion-header, .accordion-button:not(.collapsed), .accordion-button {
+    background: #EDEDED !important;
+    color: #211C37;
+    font-family: Manrope;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0%;
+
+ }
