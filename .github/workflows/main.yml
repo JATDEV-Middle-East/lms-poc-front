@@ -23,7 +23,10 @@ jobs:
           node-version: '20'
 
       - name: Install dependencies
-        run: npm ci
+        run: npm ci --force
+
+      - name: Run tests
+        run: npm run test:ci
 
       - name: Build Angular app
         run: npm run build -- --output-path=./dist/lms-app --configuration production
