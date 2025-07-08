@@ -1,4 +1,4 @@
-name: .NET
+name: Build Angular LMS APP
 
 on:
   push:
@@ -17,11 +17,16 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Angular Full CI
-        uses: colbyhill21/angular-full-ci/@v1.0
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
         with:
-          testcommand: run test:ci
-          mocha: true
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Angular app
+        run: npm run build -- --output-path=./dist/lms-app --configuration production
 
   build-image:
     name: Security Scan Report
