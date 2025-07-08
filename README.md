@@ -2,6 +2,12 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.5.
 
+## KNOWN ISSUES
+Since the purpose and scope of the project is POC:
+
+1- No secrets managemenet: this makes secrets and password stored in deployment, enviroment, Dockerfiles or even hardcoded.
+2- Contributers are not avialable since we do not use public repositories for development purposes. This repository was created publically with one commit to grant access to the code for the perposeof customer review.
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
