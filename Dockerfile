@@ -22,8 +22,8 @@ FROM nginx:alpine AS runner
 RUN mkdir -p /etc/nginx/ssl
 
 # Copy SSL certificates
-COPY ./ssl/fullchain.pem /etc/nginx/ssl/fullchain.pem
-COPY ./ssl/privkey.pem /etc/nginx/ssl/privkey.pem
+# COPY ./ssl/fullchain.pem /etc/nginx/ssl/fullchain.pem
+# COPY ./ssl/privkey.pem /etc/nginx/ssl/privkey.pem
 
 # Copy the custom Nginx configuration
 COPY nginx-custom.conf /etc/nginx/conf.d/default.conf
